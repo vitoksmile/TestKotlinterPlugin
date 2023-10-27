@@ -1,0 +1,22 @@
+[versions]
+
+# Tools
+# The Gradle `wrapper` task still needs to be run in order to update the version in `gradle-wrapper.properties`
+# https://github.com/gradle/gradle/releases
+gradleVersion = "8.1.1"
+# https://kotlinlang.org/docs/releases.html
+kotlin = "1.9.10"
+
+# https://github.com/jeremymailen/kotlinter-gradle/releases
+kotlinterPlugin = "4.0.0"
+
+
+[libraries]
+
+kotlin-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlinter-plugin = { module = "org.jmailen.gradle:kotlinter-gradle", version.ref = "kotlinterPlugin" }
+
+[plugins]
+
+kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinterPlugin" }

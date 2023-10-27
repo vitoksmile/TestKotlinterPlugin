@@ -1,0 +1,60 @@
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+# this doesn't actually enforce new line in AS formatter
+insert_final_newline = true
+max_line_length = 100
+ij_formatter_off_tag = @formatter:off
+ij_formatter_on_tag = @formatter:on
+ij_formatter_tags_enabled = true
+ij_smart_tabs = false
+# we already have max_line_length, this is not needed
+ij_visual_guides = none
+ij_wrap_on_typing = false
+
+# 1) trailing-comma rule is disabled for ktlint, because it has a formatting
+# issue (see https://github.com/pinterest/ktlint/issues/1519). So ktlint will not perform any action
+# regarding trailing commas - neither add/remove, nor reformat code related to it.
+# However Android Studio formatter works ok with trailing commas, unlike ktlint. It is enabled
+# in ./.idea/codeStyles/Project.xml `ALLOW_TRAILING_COMMA` and via `ij_kotlin_*` properties below.
+# 2) import-ordering is disabled for ktlint since it works differently from AS formatter.
+# 3) max-line-length is disabled for ktlint since it cannot format many places automatically.
+[{*.gradle.kts,*.kt,*.kts,*.main.kts}]
+ktlint_code_style = ktlint_official
+ktlint_standard_chain-wrapping = disabled
+ktlint_standard_filename = disabled
+ktlint_standard_multiline-if-else = disabled
+ktlint_standard_trailing-comma-on-call-site = disabled
+ktlint_standard_trailing-comma-on-declaration-site = disabled
+ktlint_standard_import-ordering = disabled
+ktlint_standard_max-line-length = disabled
+ktlint_standard_wrapping = enabled
+ktlint_standard_comment-wrapping = disabled
+ktlint_standard_annotation = disabled
+ktlint_standard_blank-line-before-declaration = disabled
+ktlint_standard_no-empty-first-line-in-class-body = disabled
+ktlint_standard_parameter-wrapping = disabled
+ktlint_standard_parameter-list-wrapping = disabled
+ktlint_standard_argument-list-wrapping = disabled
+ktlint_standard_multiline-expression-wrapping = disabled
+ktlint_standard_string-template-indent = disabled
+ktlint_standard_function-signature = disabled
+ktlint_standard_function-naming = disabled
+ktlint_standard_property-naming = disabled
+ktlint_standard_no-blank-line-in-list = disabled
+ktlint_standard_no-consecutive-comments = disabled
+ktlint_standard_if-else-bracing = disabled
+ktlint_standard_if-else-wrapping = disabled
+ktlint_standard_no-single-line-block-comment = disabled
+ktlint_standard_enum-wrapping = disabled
+ktlint_standard_discouraged-comment-location = disabled
+
+indent_size = 4
+tab_width = 4
+ij_continuation_indent_size = 4
+ij_kotlin_allow_trailing_comma = true
+ij_kotlin_allow_trailing_comma_on_call_site = true
+ij_kotlin_code_style_defaults = KOTLIN_OFFICIAL
+# ignore identifiers enclosed in backticks (useful for longer names in tests)
+ktlint_ignore_back_ticked_identifier = true
